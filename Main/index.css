@@ -1,0 +1,18 @@
+*{
+   text-align: center;
+}
+
+.images{
+    height: 300px;
+    margin: 20px;
+}
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.logo{
+    text-align: left;
+    margin-left:1rem ;
+    
+}
