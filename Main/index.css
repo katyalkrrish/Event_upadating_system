@@ -1,69 +1,167 @@
-*{
-   text-align: center;
-   
-   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
-}
-.upper{
-    margin-top: 2rem;
-    
-}
-.background{
-    background-size:cover ;
-    
-    
-    background-image: linear-gradient(white ,rgb(145, 202, 226));
-    height:83vh;
-    
+* {
+    text-align: center;
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.aboutus{
-    height: 100vh;
-    background-color: rgb(18, 18, 18);
-    background-size: cover;
-    color: white;
-   
-}
-
-.images{
-    height: 300px;
-    margin: 20px;
-    border-radius:50% ;
-  
-    
-    
-    
-}
-.images:hover{
-    box-shadow: 2px 2px 10px rgb(10, 10, 10) ;
-}
-.main{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    
-}@media(max-width:700px)and (min-width:20px){
-    .background{
-        background-size:cover ;
-    
-    
-        background-image: linear-gradient(white ,rgb(145, 202, 226));
-        height:120vh;
-
-    }
-}
-.logo{
+.logo {
     position: sticky;
-    top:0;
+    top: 0;
     display: flex;
+    align-items: center;
     height: 100px;
     background-color: white;
-   
-   
-    /* box-shadow:2px 2px 5px rgb(229, 228, 228) ; */
     z-index: 10;
-    /* border-radius: 15px; */
-   
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    padding-left: 20px;
+}
+.teacher-img{
+    margin-left: 50px;
+}
+.student-img{
+    margin-left: 50px;
+}
+
+.logo img {
+    max-height: 100%;
+    max-width: auto;
+}
+
+.background {
+    background-size: cover;
+    background-image: linear-gradient(white, rgb(145, 202, 226));
+    padding: 20px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+}
+
+.heading {
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content:space-between ;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.container > div {
+    margin: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.images {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 50%;
     
+    transition: box-shadow 0.3s;
+}
+
+.images:hover {
+    box-shadow: 2px 2px 10px rgb(10, 10, 10);
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+.Footer {
+    padding: 20px;
+    background-color: rgb(18, 18, 18);
+    color: white;
+    text-align: center;
+}
+
+.Footer h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.Footer p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 80px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+    
+    .images {
+        height: 150px;
+        width: 150px;
+    }
+
+    .Footer h1 {
+        font-size: 1.2rem;
+    }
+
+    .Footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 60px;
+        padding-left: 10px;
+    }
+
+    .heading {
+        font-size: 1.2rem;
+    }
+
+    .images {
+        height: 120px;
+        width: 120px;
+    }
+
+    .Footer h1 {
+        font-size: 1rem;
+    }
+
+    .Footer p {
+        font-size: 0.8rem;
+    }
+}
+
+
+.abouthead{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:bold;
+    
+}
+.box{
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-wrap:nowrap;
+
+}
+.content{
+    padding: 2%;
+}
+@media (max-width:750px){
+    .box{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     
 }
