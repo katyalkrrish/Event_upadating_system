@@ -31,7 +31,7 @@
 
 .background {
     background-size: cover;
-    background-image: linear-gradient(white, rgb(145, 202, 226));
+    background-image: linear-gradient(white, #91cae2);
     padding: 20px;
     min-height: 90vh;
     display: flex;

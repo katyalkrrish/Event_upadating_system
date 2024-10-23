@@ -33,10 +33,6 @@
 				  <a class="nav-link" href="contactus.html">Contact us</a>
 				</li> 
 				
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="index.html">Log out</a>
-				</li> -->
-				
 		  </div>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 			<span class="navbar-toggler-icon"></span>
@@ -63,9 +59,7 @@
 			  <form class="d-flex mt-3" role="search">
 				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success" type="submit">Search</button>
-			  </form> 
-			   <!-- <div class="logout"><a class="btn btn-outline-info  btn-sm" href="index.html" role="button">Log out</a></div>  -->
-			  
+			  </form> 			  
 			 </div>
 			
 		  </div>
@@ -77,50 +71,26 @@
     <center>
     
     <div class="login">
-		<form id="loginForm">
+        <form >
             <img src="./images/images1.png" id="student">
-            <h1>LOG IN AS STUDENT</h1>
+            <h1>SIGN UP</h1>
             <label for="username">Username</label>
-            <input type="text" class=" form-control" id="username" >
+            <input type="text" class=" form-control" id="username" required>
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" >
-            <div class="session">
-                <div class="sess">
-
-                    <label for="session">Session</label>
-                    <select name="session" id="sess">
-                        <option value="2020-2021">2020-2021</option>
-                        <option value="2021-2022">2021-2022</option>
-                        <option value="2022-2023">2022-2023</option>
-                        <option value="2023-2024">2023-2024</option>
-                        <option value="2024-2025" selected >2024-2025 </option>
-                        </select>
-                    </div>
-                    <div class="Course">
-                        <label for="session">Course</label>
-
-                        <select name="course" id="course">
-                            <option value="BE">B.E</option>
-                            <option value="BCA">BCA</option>
-                            <option value="BCOM">B.COM</option>
-                            <option value="BBA">BBA</option>
-                            <option value="BA">BA</option>
-                            <option value="Hotelmanagement">HM</option>
-                            <option value="MBA">MBA</option>
-                            </select>
-                        </div>
-                </div>
+            <input type="password" class="form-control" id="password" required>
             <div class="col-12 ">
-                <button  class="btn btn-primary btn-xl" id="submits" type="submit" style="color: white; text-decoration:none; font-weight:500" >Log In</button>
-				<button  class="btn btn-primary btn-xl" ><a href="register.html" style="color: white; text-decoration:none; font-weight:500">Sign Up</a></button>
-
+				<label for="confirm-password">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" required>
+            <div class="col-12 ">
+                <button  class="btn btn-primary btn-xl" id="submi" type="submit" onclick="register()">Sign Up</button>
             </div>
+			<div>
+				Already have an account?<a href="studentlogin.html">Login</a>
+			</div>
         </form>    
     </div>
 </center>
 </div>
-<script src="studentlogin.js"></script>
+<script src="register.js"></script>
 </body>
 </html>
-
-

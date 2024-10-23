@@ -26,17 +26,11 @@
 				  <a class="nav-link active" aria-current="page" href="#">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#">About Us</a>
+				  <a class="nav-link" href="aboutus.html">About Us</a>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="contactus.html">Contact us</a>
 				</li>
-				
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="index.html">Log out</a>
-				</li> -->
-				
-				
 		  </div>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 			<span class="navbar-toggler-icon"></span>
@@ -52,7 +46,7 @@
 				  <a class="nav-link active" aria-current="page" href="#">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#">About us</a>
+				  <a class="nav-link" href="aboutus.html">About us</a>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="contactus.html">Contact us</a>
@@ -76,20 +70,22 @@
     <center>
     
     <div class="login">
-        <form action="facultymain.html">
+        <form id="loginForm" >
             <center><img src="./images/images.png" id="student" height="90px" width="90px"></center>
             <h1>LOG IN AS FACULTY</h1>
             <label for="username">Email id</label>
-            <input type="text" class=" form-control" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+            <input type="text" class=" form-control"  id="username" required>
             <label for="password">Password</label>
-            <input type="password" class="form-control" required>
+            <input type="password" class="form-control" id="password" required>
             <div class="col-12 ">
-                <button  class="btn btn-primary k" id="submi" type="submit">Submit</button>
+                <button class="btn btn-primary" id="submit" type="submit" >Submit</button>
+
                 <label for="forgot password"><a  class="a1" href="forgot password">forgot password</a></label>
             </div>
         </form>
 
 </div></center>
 </div>
+<script src="teacherlogin.js"></script>
 </body>
 </html>

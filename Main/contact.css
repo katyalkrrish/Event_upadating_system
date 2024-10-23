@@ -1,7 +1,77 @@
-.logo{
-    text-align: left;
-    margin-left:1rem ;
+.bg-light{
+    background-color: white !important;
+  }
+  h5 image{
+    height: 80px;
+  }
+  .offcanvas{
+    max-width: 300px;
+  }
+  .offcanvas-body .navbar-nav{
+    flex-direction: column !important;
+  }
+  .offcanvas-header{
+    
+    padding-bottom:0px !important ;
+    
+  }
+  .disp{
+    display:  none;
+  }
+  .background{
+    background-image: linear-gradient(white, rgb(145, 202, 226));
+    height: 100vh;
+  }
+  nav{
+    height:80px;
+  }
+  .image{
+    height: 90px ;
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+  }
+  .nav-item{
+    margin-right: 30px;
+    font-weight: 500;
+    font-size: large;
+  }
+  button{
+    margin-right:30px ;
+    border-radius: 10% !important;
+  }
+  button .nav-item{
+    margin-right: 0;
+  }
+  
+  .logout{
+    margin-top: 50px !important;
+  border:1px solid  white;
+  border-radius:10% ;
+  background-color: white;
+  height: 3rem;
+  color: white !important;
+  align-self: center;
+   
+  
+  }
+  
+  @media (min-width:750px){
+    .navbar-toggler {
+      display: none !important;
     }
+  }
+  @media (max-width:750px){
+    .navitems {
+      display: none !important;
+    }
+  
+  }
+
+
+
 .bgimage{
     background-color: aliceblue;
     height: 150px;
@@ -34,66 +104,225 @@
 color:white;
 
 }
-.logo {
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    height: 100px;
-    background-color: white;
-    z-index: 10;
-    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
-    padding-left: 20px;
-}
-.logo img {
-    max-height: 100%;
-    max-width: auto;
-}
-h1{ font-family:"serif";
-    font-size: xx-large;
+h2{ font-family:"serif";
     font-size: 50px;
     font-weight:400;
 }
-.background{
-    background-image: linear-gradient(white, rgb(145, 202, 226));
-    display: flex;
-    justify-content: center;
-    height: 87.4vh;
+h1{ font-size: 15px;
+
 }
 .container {
-    
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 94%;
-    padding-top:2% ;
-    
- 
   }
 .leftsec{
     width: 40%;
     background-color: #f0f0f0;
     opacity: 0.85;
     padding: 20px;
-    border-top-left-radius:5px ;
-    border-bottom-left-radius:5px ;
 }
 .rightsec{
     width: 60%;
     opacity: 0.85;
     background-color: #f0f0f0;
     padding: 20px;
-    border-top-right-radius:5px ;
-    border-bottom-right-radius:5px ;
 }
 .message{
     padding: 20px;
     width: 100%;
-    height:250px
+    height:300px
     
 }
 label {
     display: block;
     margin-bottom: 10px;
 }
+@media (max-width:992px){
+    h2{font-family:"serif";
+        font-size: 42px;
+        font-weight:400;}
+    h1{
+        font-size: 14px;}
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 650px;
+        line-height: 5px;
+       
+    }
+}
+@media (max-width:769px){
+    h2{font-family:"serif";
+        font-size: 30px;
+        font-weight:400;}
+    h1{
+        font-size: 12px;}
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 570px;
+        line-height: 3px;
+       
+    }
+    .message{
+        height: 100px;;
+    }
+}
 
+
+@media (max-width:750px)
+{ h2{font-family:"serif";
+    font-size: 30px;
+    font-weight:400;}
+h1{
+    font-size: 13px;}
+.image{
+    height: 70px ;}
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 490px;}
+.leftsec{
+    width: 50%;
+    background-color: #f0f0f0;
+    opacity: 0.85;
+    padding: 20px;}
+.rightsec{
+    width: 50%;
+    opacity: 0.85;
+    background-color: #f0f0f0;
+    padding: 20px;}
+.message{
+    padding: 20px;
+    width: 100%;
+    height:100px}}
+
+    @media (max-width:540px)
+{ h2{font-family:"serif";
+    font-size: 25px;
+    font-weight:400;}
+h1{
+    font-size: 13px;}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 450px;
+
+}}
+@media (max-width:488px)
+{ h2{font-family:"serif";
+    font-size: 22px;
+    font-weight:400;}
+h1{
+    font-size: 12px;}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 400px;
+   
+}}
+@media (max-width:462px){
+    h2{font-family:"serif";
+        font-size: 19px;
+        font-weight:400;}
+    h1{
+        font-size: 11px;}
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 390px;
+       
+    }
+}
+
+@media (max-width:431px){
+    h2{font-family:"serif";
+        font-size: 19px;
+        font-weight:400;}
+    h1{
+        font-size: 11px;}
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 380px;
+       
+    }
+}
+@media (max-width:423px){
+    h2{font-family:"serif";
+        font-size: 18px;
+        font-weight:400;}
+    h1{
+        font-size: 10px;}
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 350px;
+       
+    }}
+
+    @media (max-width:407px){
+        h2{font-family:"serif";
+            font-size: 17px;
+            font-weight:400;}
+        h1{
+            font-size: 9px;}
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 320px;
+           
+        }}
+        @media (max-width:380px){
+            h2{font-family:"serif";
+                font-size: 16px;
+                font-weight:400;}
+            h1{
+                font-size: 8px;}
+            
+            .container {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 300px;}
+            .message{
+                    padding: 20px;
+                    width: 100%;
+                    height:80px}
+            }
+
+            @media (max-width:345px){
+                h2{font-family:"serif";
+                    font-size: 16px;
+                    font-weight:400;}
+                h1{
+                    font-size: 8px;}
+                
+                .container {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 310px;}
+                .message{
+                        padding: 20px;
+                        width: 100%;
+                        height:60px}
+                }
