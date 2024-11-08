@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --text-light: #333;
+            --text-dark: #f7fafc;
+            --background-light: linear-gradient(white, #91cae2);
+            --background-dark: #1a202c;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-image: var(--background-light);
+            background-attachment: fixed;
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        #darkModeToggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode table {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-mode table {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-edit {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-ban {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .btn-unban {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #editForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #editForm input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #editForm button {
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo2.jpg-IEy1o0NIcEi5JY4q63mrCrOgVGxrfZ.png" alt="Event Connect Logo" style="height: 100px; width: auto; margin-right: 15px;"> -->
+    <nav class="navbar bg-light sticky-top">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#"><img src="./images/logo2.jpg" alt="" class="image">
+		  </a>
+		  <div class="navitems">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="facultymain.html">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">About Us</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="contactus.html">Contact us</a>
+				</li>
+				
+			
+				
+				
+		  </div>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+			  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="./images/logo2.jpg" alt="" class="image"></h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+			  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="facultymain.html">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">About us</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="contactus.html">Contact us</a>
+				</li>
+				
+				
+			  </ul>
+			  <form class="d-flex mt-3" role="search">
+				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			  </form>
+			  
+			</div>
+			
+		  </div>
+		</div>
+	  </nav>
+    <div class="container">
+        <header>
+            <h1>User Management Dashboard</h1>
+            <button id="darkModeToggle">🌙</button>
+        </header>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search users...">
+        </div>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit User</h2>
+            <form id="editForm">
+                <input type="hidden" id="editUserId">
+                <input type="text" id="editUsername" placeholder="Username" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const userTableBody = document.getElementById('userTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const editModal = document.getElementById('editModal');
+        const editForm = document.getElementById('editForm');
+        const editUserId = document.getElementById('editUserId');
+        const editUsername = document.getElementById('editUsername');
+        const closeModal = document.getElementsByClassName('close')[0];
+
+        let users = [];
+
+        function renderUsers(usersToRender) {
+            userTableBody.innerHTML = '';
+            usersToRender.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${user.username}${user.banned ? ' (Banned)' : ''}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit" onclick="editUser(${index})" ${user.banned ? 'disabled' : ''}>Edit</button>
+                            <button class="btn btn-delete" onclick="deleteUser(${index})">Delete</button>
+                            <button class="btn ${user.banned ? 'btn-unban' : 'btn-ban'}" onclick="toggleBanUser(${index})">
+                                ${user.banned ? 'Unban' : 'Ban'}
+                            </button>
+                        </div>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+            });
+        }
+
+        function filterUsers() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredUsers = users.filter(user => 
+                user.username.toLowerCase().includes(searchTerm)
+            );
+            renderUsers(filteredUsers);
+        }
+
+        function editUser(index) {
+            editUserId.value = index;
+            editUsername.value = users[index].username;
+            editModal.style.display = 'block';
+        }
+
+        function deleteUser(index) {
+            users.splice(index, 1);
+            saveUsers();
+            renderUsers(users);
+        }
+
+        function toggleBanUser(index) {
+            users[index].banned = !users[index].banned;
+            saveUsers();
+            renderUsers(users);
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+            darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        function loadUsers() {
+            const storedUsers = localStorage.getItem('users');
+            users = storedUsers ? JSON.parse(storedUsers) : [];
+            renderUsers(users);
+        }
+
+        function saveUsers() {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        searchInput.addEventListener('input', filterUsers);
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        editForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const index = parseInt(editUserId.value);
+            users[index].username = editUsername.value;
+            saveUsers();
+            renderUsers(users);
+            editModal.style.display = 'none';
+        });
+
+        closeModal.onclick = function() {
+            editModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == editModal) {
+                editModal.style.display = 'none';
+            }
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        // Initial load
+        loadUsers();
+    </script>
+</body>
+</html>

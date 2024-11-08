@@ -1,24 +1,21 @@
-let lusername = [];
-let lpassword = [];
+let users = [];
 
 function register() {
     let username = document.querySelector('#username').value;
     let password = document.querySelector('#password').value;
     let cpassword = document.querySelector('#confirm-password').value;
 
-    
     if (!username || !password || !cpassword) {
         alert("Please fill all the fields!");
         return;
     }
 
-    
     if (password === cpassword) {
-        lusername.push(username);
-        lpassword.push(password); 
-
+        let newUser = { username: username, password: password, banned: false };
+        users.push(newUser);
         saveDatatoLocal();
         alert("User saved!");
+        clearFields();
     } else {
         alert("Passwords do not match. Try again.");
         clearFields();
@@ -32,16 +29,11 @@ function clearFields() {
 }
 
 function saveDatatoLocal() {
-  
-    localStorage.setItem('uname', JSON.stringify(lusername));
-    localStorage.setItem('pwd', JSON.stringify(lpassword));
+    localStorage.setItem('users', JSON.stringify(users));
 }
 
 function getUsers() {
-    
-    lusername = JSON.parse(localStorage.getItem('uname')) || [];
-    lpassword = JSON.parse(localStorage.getItem('pwd')) || [];
+    users = JSON.parse(localStorage.getItem('users')) || [];
 }
-
 
 window.onload = getUsers;

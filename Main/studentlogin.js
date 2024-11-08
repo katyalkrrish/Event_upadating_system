@@ -9,14 +9,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         return;
     }
 
-    let lusername = JSON.parse(localStorage.getItem('uname')) || [];
-    let lpassword = JSON.parse(localStorage.getItem('pwd')) || [];
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let userIndex = users.findIndex(user => user.username === username);
 
-    let userIndex = lusername.indexOf(username);
-
-    if (userIndex !== -1 && lpassword[userIndex] === password) {
-        window.location.href = 'studentmain.html';  
-        localStorage.setItem('Key', "1");
+    if (userIndex !== -1 && users[userIndex].password === password) {
+        if (users[userIndex].banned) {
+            alert("Your account has been banned. Please contact the administrator.");
+        } else {
+            window.location.href = 'studentmain.html';
+            localStorage.setItem('Key', "1");
+        }
     } else {
         alert("Invalid credentials!");
         document.querySelector('#username').value = "";
